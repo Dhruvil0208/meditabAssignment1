@@ -65,3 +65,15 @@
   .sidenav a:hover {
     color: #9d32db;
   }
+
+.buttons{
+
+    height: 60px;
+    width:100%;
+    top:100px;
+    left:160px;
+    
+}
+.active{
+    float:right;
+}
