@@ -152,7 +152,73 @@ button,i{
     border-radius: 10px;
   }
 
-/* .mainform{
-    display:inline-block;
+.mainform{
+    width: 80%;
     height: calc(100vh - 161px);
-} */
+    margin:20px;
+    padding:10px;
+}
+
+.form1{
+    margin:10px;
+    padding:5px;
+    display:flex;
+    border: 1px solid gray;
+    background-color: #ffffff;
+    
+}
+.column{
+    width:33.3%;
+    padding:10px;
+    justify-content: center;
+}
+#avatar{
+    height: 100px;
+    width: 100px;
+    /* align-items: center; */
+    border-radius: 5px;
+    display: block;
+    margin:auto;
+}
+
+#img-txt{
+    text-align: center;
+    margin: 4px;
+   
+}
+
+.column label{
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+    font-size: large;
+}
+
+.column input,
+select{
+    width: 200px;
+    padding-left: 15px;
+    margin:4px;
+    border-radius: 4px;
+    height: 25px;
+
+}
+#interpreter{
+    height: 15px;
+    width: 15px;
+}
+
+#selfpay{
+    height: 15px;
+    width: 15px;
+}
+
+#provider{
+    height: 15px;
+    width: 15px;
+}
+
+#prescription{
+    height: 15px;
+    width: 15px;
+}
