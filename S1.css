@@ -309,3 +309,53 @@ select{
 .phone-inputs{
     display:flex;
 }
+.type-input{
+    margin: 1%;
+    width: 15%;
+}
+
+.code-input{
+    margin: 1%;
+    width: 10%;
+}
+
+.number-input{
+    margin: 1%;
+    width: 25%;
+}
+
+.fax h3{
+    display: inline-block;
+}
+
+.email h3{
+    display:inline-block;
+}
+
+.website h3{
+    display: inline-block;
+}
+
+.form3{
+    
+    margin:10px;
+    margin-top: 30px;
+    padding:5px;
+    border: 1px solid gray;
+    background-color: #ffffff;
+}
+
+.contact-preference{
+    width: 100%;
+    
+}
+
+.contact-preference td, th {
+    /* border: 1px solid #dddddd; */
+    text-align: left;
+    padding: 8px;
+  }
+
+  .contact-preference tr{
+    border: 1px solid black;
+  }
