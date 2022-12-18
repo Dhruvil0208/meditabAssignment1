@@ -222,3 +222,90 @@ select{
     height: 15px;
     width: 15px;
 }
+
+.form2{
+
+    margin:10px;
+    margin-top: 30px;
+    padding:5px;
+    border: 1px solid gray;
+    background-color: #ffffff;
+}
+
+.contact-header{
+    display: flex;
+}
+
+.address1{
+    width: 50%;
+}
+
+.address-container{
+    display:flex;
+}
+
+.address-field-header h3{
+    width: 95%;
+    padding: 5px;
+    display: inline-block;
+}
+
+.address-street input{
+    display:block;
+    margin:1%;
+    width: 75%;
+    height:30px;
+}
+.address-street label{
+    display:block;
+    margin:1%;
+}
+
+.address-rest{
+    display: flex;
+}
+
+.address-rest input{
+    display:block;
+    margin:3%;
+    width: 80%;
+    height:30px;
+}
+.address-rest label{
+    display:block;
+    margin:3%;
+}
+
+
+
+.address-rest select{
+    display:block;
+    margin:3%;
+    width: 173px;
+    height:30px;
+}
+
+.phone h3{
+    display: inline-block;
+}
+
+.phone-header{
+    display: flex;
+}
+
+.type{
+    margin:1%;
+    width: 15%;
+}
+.code{
+    margin:1%;
+    width:10%;
+}
+.number{
+    margin:1%;
+    width: 50%;
+}
+
+.phone-inputs{
+    display:flex;
+}
