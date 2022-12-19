@@ -16,7 +16,8 @@
 }
 
 .nav-menu-left{
- padding:5px;   
+ padding:5px;
+ width: 65%;   
 }
 
 .nav-menu-left a{
@@ -32,8 +33,8 @@
 }
 
 .nav-menu-right{
-    margin-left: 650px;
-    float: left;
+    margin-left: 80px;
+    
    
     padding:5px; 
 }
@@ -69,7 +70,7 @@
 
 .main{
     background-color: #f1f1f1;
-    height: calc(100vh - 119px);
+    height: calc(100vh - 67px);
     
    
 }
@@ -108,6 +109,7 @@ button,i{
 }
 .sideform{
     display:flex;
+    background-color: #f1f1f1;
 }
 .sidebar{
     height: calc(100vh - 161px);
