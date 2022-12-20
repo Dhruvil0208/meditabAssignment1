@@ -379,17 +379,3 @@ button,i{
     background-color: #ffffff;
 }
 
-.contact-preference{
-    width: 100%;
-    
-}
-
-.contact-preference td, th {
-    /* border: 1px solid #dddddd; */
-    text-align: left;
-    padding: 8px;
-  }
-
-  .contact-preference tr{
-    border: 1px solid black;
-  }

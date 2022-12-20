@@ -362,29 +362,65 @@
                         </div>
                         <div class="form3">
                             <h2>Contact Prefernce</h2>
-                            <table class="contact-preference">
+                            <table>
                                 <tr>
-                                  <th>Type</th>
-                                  <th>Address</th>
-                                  <th>Phone</th>
-                                  <th>Fax</th>
-                                  <th>Email</th>
-                                  <th>Website</th>
+                                    <th>Type</th>
+                                    <th>Address</th>
+                                    <th>Phone</th>
+                                    <th>Fax</th>
+                                    <th>Email</th>
+                                    <th>Website</th>
                                 </tr>
                                 <tr>
-                                  <td>Appointment Reminder</td>
-                                  <td><input type="text" disabled></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
+                                    <td contenteditable='false'>Appointment Reminder</td>
+                                    <td></td>
+                                    <td contenteditable='true'></td>
+                                    <td></td>
+                                    <td contenteditable='true'></td>
+                                    <td></td>
                                 </tr>
                                 <tr>
-                                  <td>Centro comercial Moctezuma</td>
-                                  <td>Francisco Chang</td>
-                                  <td>Mexico</td>
+                                    <td>Mailing</td>
+                                    <td contenteditable='true'></td>
+                                    <td contenteditable='true'></td>
+                                    <td contenteditable='true'></td>
+                                    <td contenteditable='true'></td>
+                                    <td contenteditable='true'></td>
                                 </tr>
-                              </table>
+                                <tr>
+                                    <td>Primary</td>
+                                    <td contenteditable='true'></td>
+                                    <td contenteditable='true'></td>
+                                    <td contenteditable='true'></td>
+                                    <td contenteditable='true'></td>
+                                    <td contenteditable='true'></td>
+                                </tr>
+                                <tr>
+                                    <td>Statement</td>
+                                    <td contenteditable='true'></td>
+                                    <td contenteditable='true'></td>
+                                    <td contenteditable='true'></td>
+                                    <td contenteditable='true'></td>
+                                    <td contenteditable='true'></td>
+                                </tr>
+                                <tr>
+                                    <th>Preferred Comm.</th>
+                                    <td colspan="5">  
+                                        <label for="Type">Type: </label>
+                                        <select id="Type">
+                                            <option value="Email">Email</option>
+                                            <option value="Fax">Fax</option>
+                                            <option value="Mail">Mail</option>
+                                            <option value="Phone">Phone</option>
+                                            <option value="Text">Text</option>
+                                        </select>
+                                        <label for="Value">Value: </label>
+                                        <select id="Value" readonly>
+                                            <option value=""></option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                 </form>
 
