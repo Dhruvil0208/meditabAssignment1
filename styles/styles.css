@@ -6,6 +6,10 @@
     
 }
 
+input , select ,hr{
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+}
 input:focus , input[type ="text"]:focus{
     border: 2px solid #5a5fe2;
     outline: none;
@@ -369,6 +373,9 @@ button,i{
 
 .website h3{
     display: inline-block;
+}
+.address1 fieldset{
+    border:  1px solid #e0e0e0;;
 }
 
 .form3{
