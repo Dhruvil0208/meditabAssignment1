@@ -3,7 +3,7 @@
     margin:0px;
     box-sizing: border-box;
     font-family: sans-serif;
-    color: #486581;
+    
 }
 
 input:focus , input[type ="text"]:focus{
@@ -18,7 +18,7 @@ select:focus {
 
 .main-nav{
    
-    text-decoration: none;
+    /* text-decoration: none; */
     background-color:#ffffff;
     display: flex;
     flex-direction: row;
@@ -59,7 +59,7 @@ select:focus {
     
 }
 
-.nav-menu-rightw a:hover{
+.nav-menu-right a:hover{
     color:#5a5fe2;
 }
 
@@ -83,7 +83,7 @@ select:focus {
 .main{
     background-color: #f6f6f6;
     height: calc(100vh - 67px);
-    
+    color: #486581;
    
 }
 /* .side-content{
@@ -128,10 +128,10 @@ button,i{
     /* display: inline-block; */
     width: 10%;
     display:inline-block;
-    border: 1px solid gray;
+    border: 1px solid #e0e0e0;
     overflow-y: scroll;
     margin-left:10px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 .sidebar a{
     text-decoration: none;
@@ -168,8 +168,8 @@ button,i{
     border-radius: 2px;
   }
 
-  ::-webkit-scrollbar-thumb :hover {
-    background:#243b53;
+  ::-webkit-scrollbar-thumb:hover {
+    background:#869bb3;
     border-radius: 2px;
   }
 
@@ -185,7 +185,7 @@ button,i{
     margin:10px;
     padding:5px;
     display:flex;
-    border: 1px solid gray;
+    border: 1px solid #e0e0e0;
     background-color: #ffffff;
     border-radius: 5px;
     
@@ -249,10 +249,11 @@ button,i{
 
 .form2{
     border-radius: 5px;
+    border: 1px solid #e0e0e0;
     margin:10px;
     margin-top: 30px;
     padding:5px;
-    border: 1px solid gray;
+    
     background-color: #ffffff;
 }
 
@@ -371,11 +372,21 @@ button,i{
 }
 
 .form3{
-    
+    border-radius: 5px;
     margin:10px;
     margin-top: 30px;
     padding:5px;
-    border: 1px solid gray;
+    border: 1px solid #e0e0e0;
     background-color: #ffffff;
 }
 
+table{
+    width: 98%;
+    border-collapse: collapse;
+    margin: 1%;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
