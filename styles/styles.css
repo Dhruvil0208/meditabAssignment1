@@ -203,7 +203,7 @@ button,i{
     height: 100px;
     width: 100px;
     /* align-items: center; */
-    border-radius: 5px;
+    border-radius: 15px;
     display: block;
     margin:auto;
 }
@@ -219,7 +219,7 @@ button,i{
     width: 150px;
     margin: 4px;
     text-align: right;
-    font-size: large;
+    font-size: medium;
 }
 
 .column input,select{
@@ -227,7 +227,7 @@ button,i{
     padding-left: 15px;
     margin:4px;
     /* border-radius: 4px; */
-    height: 25px;
+    height: 30px;
 
 }
 #interpreter{
@@ -295,6 +295,7 @@ button,i{
 
 .address-rest{
     display: flex;
+    margin: 1%;
 }
 
 .address-rest input{
@@ -326,10 +327,12 @@ button,i{
 }
 .phone h3{
     display: inline-block;
+    margin: 1%;
 }
 
 .phone-header{
     display: flex;
+    margin-left: 1%;
 }
 
 .type{
@@ -365,14 +368,17 @@ button,i{
 
 .fax h3{
     display: inline-block;
+    margin: 1%;
 }
 
 .email h3{
     display:inline-block;
+    margin: 1%;
 }
 
 .website h3{
     display: inline-block;
+    margin: 1%;
 }
 .address1 fieldset{
     border:  1px solid #e0e0e0;;
