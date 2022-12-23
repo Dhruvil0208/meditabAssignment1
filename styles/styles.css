@@ -128,7 +128,7 @@ button,i{
     background-color: #f6f6f6;
 }
 .sidebar{
-    height: calc(100vh - 161px);
+    height: calc(100vh - 119px);
     /* display: inline-block; */
     width: 10%;
     display:inline-block;
