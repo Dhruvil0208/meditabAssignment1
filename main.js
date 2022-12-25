@@ -42,12 +42,6 @@ document.querySelector('.toggle').onclick = function()
     mainform.classList.toggle('mainform-large');
 }
 
-// const otherHeader = document.querySelector('.column-wrapper');
-
-// document.querySelector('other-toggle').onclick = function()
-// {
-//     otherHeader.classList.toggle('column-expanded')
-// }
 
 
 var coll = document.getElementsByClassName("other-details-header");
