@@ -31,3 +31,37 @@ function checkAge(){
         alert("The Patient is minor please enter parent's contact number.")
     }
 }
+
+
+const sidebar = document.querySelector('.sidebar');
+const mainform = document.querySelector('.mainform');
+
+document.querySelector('.toggle').onclick = function()
+{
+    sidebar.classList.toggle('sidebar-small');
+    mainform.classList.toggle('mainform-large');
+}
+
+// const otherHeader = document.querySelector('.column-wrapper');
+
+// document.querySelector('other-toggle').onclick = function()
+// {
+//     otherHeader.classList.toggle('column-expanded')
+// }
+
+
+var coll = document.getElementsByClassName("other-details-header");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+console.log(i);
+  coll[i].addEventListener("click", function() {
+    
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}

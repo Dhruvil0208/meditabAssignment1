@@ -20,6 +20,7 @@ select:focus {
     border: 2px solid #5a5fe2;
 }
 
+
 .main-nav{
    
     /* text-decoration: none; */
@@ -107,6 +108,10 @@ display: inline-block;
     display: inline-block;
     margin-left:67.5%;
 }
+.buttons input:hover,
+button:hover{
+    cursor: pointer;
+}
 
 .buttons input,
 span,
@@ -127,6 +132,8 @@ button,i{
     display:flex;
     background-color: #f6f6f6;
 }
+
+
 .sidebar{
     height: calc(100vh - 119px);
     /* display: inline-block; */
@@ -134,13 +141,43 @@ button,i{
     display:inline-block;
     border: 1px solid #e0e0e0;
     overflow-y: scroll;
+    overflow-x: hidden;
     margin-left:10px;
     border-radius: 5px;
+}
+.sidebar .toggle{
+    border: none;
+    position:relative; 
+    background-color: #f6f6f6;
+    left: 90%; 
+   
+}
+
+.toggle{
+    font-size: medium;
+    color: gray;
+    font: bold;
+}
+.sidebar span:hover{
+    cursor: pointer;
+    color:#5a5fe2;
+}
+.sidebar-small{
+    width: 1%;
+}
+.sidebar-small .toggle{
+    border: none;
+    position:relative; 
+    left: -80%; 
+    
+    transform:rotate(180deg);
+
 }
 .sidebar a{
     text-decoration: none;
     display: block;
     margin: 5px;
+    margin-left: 10px;
     padding: 5px;
     color: gray;
 }
@@ -177,14 +214,20 @@ button,i{
     border-radius: 2px;
   }
 
-.mainform{
+.asterick{
+    color: red;
+}
+
+ .mainform{
     width: 85%;
     height: calc(100vh - 140px);
     margin:20px;
     padding:10px;
     overflow-y: scroll;
 }
-
+.mainform-large{
+    width: 96%;
+}
 .form1{
     margin:10px;
     padding:5px;
@@ -256,7 +299,7 @@ button,i{
     border: 1px solid #e0e0e0;
     margin:10px;
     margin-top: 30px;
-    padding:5px;
+    padding:10px;
     
     background-color: #ffffff;
 }
@@ -388,7 +431,7 @@ button,i{
     border-radius: 5px;
     margin:10px;
     margin-top: 30px;
-    padding:5px;
+    padding:10px;
     border: 1px solid #e0e0e0;
     background-color: #ffffff;
 }
@@ -402,4 +445,37 @@ td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
+}
+
+
+.form4{
+    
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    margin:10px;
+    margin-top: 30px;
+    padding:10px;
+    
+    background-color: #ffffff;
+}
+
+.column-wrapper{
+    display: flex;
+    
+}
+
+.column-expandable{
+
+    display: none;
+}
+
+.other-details-header h2{
+    display: inline-block;
+}
+
+.other-details-header i{
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
+    font-size: large;
 }
