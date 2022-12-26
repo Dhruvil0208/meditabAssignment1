@@ -316,13 +316,13 @@ button{
     width: 100%;
     max-width: 100%;
     min-width: 45%;
-    height:auto;
+   
     
 }
 
 .address-container{
     display:flex;
-    width: 100%;
+    
     overflow-x:scroll;
     
 }

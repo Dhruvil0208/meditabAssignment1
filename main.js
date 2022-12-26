@@ -63,7 +63,7 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 
-
+// function for adding and deleting contact field
 const contactFormHTML = `<div class="address1">
 <fieldset>
     <legend>
@@ -111,31 +111,44 @@ const contactFormHTML = `<div class="address1">
         </div>  
     </div>
     <div class="phone">
-        <h3>Phone</h3><i class="fa-solid fa-circle-plus" onclick="addPhone(this)"></i>
-        <div class="phone-header">
-            <p class="type">Type</p>
-            <p class="code">Code</p>
-            <p class="number">Number</p>
-        </div>
-        <hr>
-        <div class="phone-inputs-wrapper" id="phone-inputs-wrapper">
-            <div id="phone-inputs" class="phone-inputs"> 
-                <select name="type" id="type" class="type-input">
-                    <option value="Cell">Cell</option>
-                    <option value="Landline">Landline</option>
-                </select>
-                <select name="code" id="code" class="code-input">
-                    <option value="+1">+1</option>
-                    <option value="+91">+91</option>
-                </select>
-                <input type="text" name="number" id="number" class="number-input">
-                <i class="fa-solid fa-trash-can" style="margin-left: 20px; margin-top: 7px;" onclick="removePhoneField(this)"></i>
+        <h3>Phone</h3>
+        <i class="fa-solid fa-circle-plus" onclick="addPhone(this)"></i>
+        <div class="phone-wrapper">
+            <div class="phone-header-wrapper">
+                <div class="phone-header">
+                    <p class="type">Type</p>
+                    <p class="code">Code</p>
+                    <p class="number">Number</p>
+                </div>
+                <hr>
             </div>
-            
+        
+        
+            <div class="phone-inputs-wrapper" id="phone-inputs-wrapper">
+                <div id="phone-inputs" class="phone-inputs"> 
+                    <select name="type" id="type" class="type-input">
+                        <option value="Cell">Cell</option>
+                        <option value="Landline">Landline</option>
+                    </select>
+                    <select name="code" id="code" class="code-input">
+                        <option value="+1">+1</option>
+                        <option value="+91">+91</option>
+                    </select>
+                    <input type="text" name="number" id="number" class="number-input">
+                    <i class="fa-solid fa-trash-can" style="margin-left: 20px; margin-top: 7px;" onclick="removePhoneField(this)"></i>
+                </div>
+                
+            </div>
         </div>
     </div>
     <div class="fax">
         <h3>Fax</h3><i class="fa-solid fa-circle-plus"></i>
+        <div class="phone-header">
+            
+            <p class="code">Code</p>
+            <p class="number">Number</p>
+        </div>
+        <hr>
     </div>
     <div class="email">
         <h3>Email</h3><i class="fa-solid fa-circle-plus"></i>
@@ -145,35 +158,58 @@ const contactFormHTML = `<div class="address1">
     </div>
 </fieldset>
 </div>`
-
+//addition function
 function addContactField (){
 
   document.getElementById("address-container").innerHTML += contactFormHTML;
 }
-
+//deletion function
 function removeContactField(deleteButton){
   deleteButton.closest('.address1').remove();
 }
 
-const phoneDetails = `<div id="phone-inputs" class="phone-inputs"> 
-<select name="type" id="type" class="type-input">
-    <option value="Cell">Cell</option>
-    <option value="Landline">Landline</option>
-</select>
-<select name="code" id="code" class="code-input">
-    <option value="+1">+1</option>
-    <option value="+91">+91</option>
-</select>
-<input type="text" name="number" id="number" class="number-input">
-<i class="fa-solid fa-trash-can" style="margin-left: 20px; margin-top: 7px;" onclick="removePhoneField(this)"></i>
+//function for adding and deleting phone number in contact detail form
+
+const phoneLabel = `<div class="phone-header-wrapper">
+<div class="phone-header">
+    <p class="type">Type</p>
+    <p class="code">Code</p>
+    <p class="number">Number</p>
+</div>
+<hr>
 </div>`
 
-let phoneFieldCount = 1 ;
+const phoneInput = `<div class="phone-inputs-wrapper" id="phone-inputs-wrapper">
+<div id="phone-inputs" class="phone-inputs"> 
+    <select name="type" id="type" class="type-input">
+        <option value="Cell">Cell</option>
+        <option value="Landline">Landline</option>
+    </select>
+    <select name="code" id="code" class="code-input">
+        <option value="+1">+1</option>
+        <option value="+91">+91</option>
+    </select>
+    <input type="text" name="number" id="number" class="number-input">
+    <i class="fa-solid fa-trash-can" style="margin-left: 20px; margin-top: 7px;" onclick="removePhoneField(this)"></i>
+</div>
+
+</div>`
 
 function addPhone(button){
-    button.closest('.phone').querySelector('.phone-inputs-wrapper').innerHTML+= phoneDetails; 
+
+if(button.closest('.phone').querySelector('.phone-wrapper').childElementCount == 0)
+    {
+        button.closest('.phone').querySelector('.phone-wrapper').innerHTML += phoneLabel;
+    }
+    
+    button.closest('.phone').querySelector('.phone-wrapper').innerHTML += phoneInput;
 }
  
 function removePhoneField(deleteButton){
-    deleteButton.closest('.phone-inputs').remove();
+    if(deleteButton.closest('.phone-wrapper').childElementCount == 2)
+    {
+            deleteButton.closest('.phone').querySelector('.phone-header-wrapper').remove();
+    }
+    deleteButton.closest('.phone-inputs-wrapper').remove();
+    
   }
