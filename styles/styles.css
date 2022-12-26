@@ -41,7 +41,7 @@ select:focus {
     text-decoration: none;
     color: gray;
     font-size:x-large;
-    /* padding: 5px; */
+    padding: 5px;
     
 }
 
@@ -60,7 +60,7 @@ select:focus {
     text-decoration: none;
     color: gray;
     font-size:x-large;
-    /* padding: 5px; */
+    padding: 5px;
     
 }
 
@@ -115,7 +115,7 @@ button:hover{
 
 .buttons input,
 span,
-button,i{
+button{
     padding: 5px;
     margin:2px;
 }
@@ -313,9 +313,11 @@ button,i{
 }
 
 .address1{
-    width: 50%;
+    width: 100%;
     max-width: 100%;
-    min-width: 50%;
+    min-width: 45%;
+    height:auto;
+    
 }
 
 .address-container{
@@ -430,7 +432,8 @@ button,i{
     margin: 1%;
 }
 .address1 fieldset{
-    border:  1px solid #e0e0e0;;
+    border:  1px solid #e0e0e0;
+    height: 100%;
 }
 
 .form3{

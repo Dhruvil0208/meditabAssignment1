@@ -226,7 +226,7 @@
                         </div>
 
                         <div class="form2">
-                            <div class="contact-header"><h2>Contact Details</h2><i class="fa-solid fa-circle-plus" onclick="addContactField()"></i></div>
+                            <div class="contact-header"><h2>Contact Details</h2><i class="fa-solid fa-circle-plus" style="margin-top: 5px;" onclick="addContactField()"></i></div>
                             <div class="address-container" id="address-container">
                                 <div class="address1">
                                     <fieldset>
@@ -238,7 +238,7 @@
                                         </legend>
                                         <div class="address-field">
                                             <div class="address-field-header">
-                                                <h3>Address</h3><i class="fa-solid fa-trash"></i>
+                                                <h3>Address<i class="fa-solid fa-circle-plus"></i></h3><i class="fa-solid fa-trash-can" onclick="removeContactField(this)"></i>
                                             </div>
                                             <div class="address-field-container">
                                                <div class="address-street">
@@ -269,33 +269,43 @@
                                                         </select>
                                                     </div>
                                                     <div>
-                                                        <label for=""><i class="fa-solid fa-trash"></i></label>
+                                                        <label for=""><i class="fa-solid fa-trash-can"></i></label>
                                                     </div>
                                                </div>
                                             </div>  
                                         </div>
                                         <div class="phone">
-                                            <h3>Phone</h3><i class="fa-solid fa-circle-plus"></i>
+                                            <h3>Phone</h3><i class="fa-solid fa-circle-plus" onclick="addPhone(this)"></i>
                                             <div class="phone-header">
                                                 <p class="type">Type</p>
                                                 <p class="code">Code</p>
                                                 <p class="number">Number</p>
                                             </div>
                                             <hr>
-                                            <div class="phone-inputs">
-                                                <select name="type" id="type" class="type-input">
-                                                    <option value="Cell">Cell</option>
-                                                    <option value="Landline">Landline</option>
-                                                </select>
-                                                <select name="code" id="code" class="code-input">
-                                                    <option value="+1">+1</option>
-                                                    <option value="+91">+91</option>
-                                                </select>
-                                                <input type="text" name="number" id="number" class="number-input">
+                                            <div class="phone-inputs-wrapper" id="phone-inputs-wrapper">
+                                                <div id="phone-inputs" class="phone-inputs"> 
+                                                    <select name="type" id="type" class="type-input">
+                                                        <option value="Cell">Cell</option>
+                                                        <option value="Landline">Landline</option>
+                                                    </select>
+                                                    <select name="code" id="code" class="code-input">
+                                                        <option value="+1">+1</option>
+                                                        <option value="+91">+91</option>
+                                                    </select>
+                                                    <input type="text" name="number" id="number" class="number-input">
+                                                    <i class="fa-solid fa-trash-can" style="margin-left: 20px; margin-top: 7px;" onclick="removePhoneField(this)"></i>
+                                                </div>
+                                                
                                             </div>
                                         </div>
                                         <div class="fax">
                                             <h3>Fax</h3><i class="fa-solid fa-circle-plus"></i>
+                                            <div class="phone-header">
+                                                
+                                                <p class="code">Code</p>
+                                                <p class="number">Number</p>
+                                            </div>
+                                            <hr>
                                         </div>
                                         <div class="email">
                                             <h3>Email</h3><i class="fa-solid fa-circle-plus"></i>
@@ -308,67 +318,71 @@
                                 <div class="address1">
                                     <fieldset>
                                         <legend>
-                                            <select name="" id="">
+                                            <select name="" id="address-option">
                                                 <option value="">Home</option>
                                                 <option value="">Work</option>
                                             </select>
                                         </legend>
                                         <div class="address-field">
                                             <div class="address-field-header">
-                                                <h3>Address</h3><i class="fa-solid fa-trash"></i>
+                                                <h3>Address<i class="fa-solid fa-circle-plus"></i></h3><i class="fa-solid fa-trash-can" onclick="removeContactField(this)"></i>
                                             </div>
                                             <div class="address-field-container">
                                                <div class="address-street">
                                                     <label for="street">Street</label>
-                                                    <input type="text" name="street2" id="street">
+                                                    <input type="text" name="street" id="street">
                                                </div>
                                                <div class="address-rest">
                                                     <div>
                                                         <label for="zip">Zip</label>
-                                                        <input type="text" name="zip2" id="zip">
+                                                        <input type="text" name="zip" id="zip">
                                                     </div>
                                                     <div>
                                                         <label for="city">City</label>
-                                                        <input type="text" name="city2" id="city">
+                                                        <input type="text" name="city" id="city">
                                                     </div>
                                                     <div id="state">
                                                         <label for="state">State</label>
-                                                        <select name="state2" id="state">
+                                                        <select name="state" id="state">
                                                             <option value="Washington">Washington</option>
                                                             <option value="Illoniss">Illoniss</option>
                                                         </select>
                                                     </div>
                                                     <div >
                                                         <label for="Country">Country</label>
-                                                        <select name="country2" id="country">
+                                                        <select name="country" id="country">
                                                             <option value="US">US</option>
                                                             <option value="India">India</option>
                                                         </select>
                                                     </div>
                                                     <div>
-                                                        <label for=""><i class="fa-solid fa-trash"></i></label>
+                                                        <label for=""><i class="fa-solid fa-trash-can"></i></label>
                                                     </div>
                                                </div>
                                             </div>  
                                         </div>
                                         <div class="phone">
-                                            <h3>Phone</h3><i class="fa-solid fa-circle-plus"></i>
+                                            <h3>Phone</h3><i class="fa-solid fa-circle-plus" onclick="addPhone(this)"></i>
                                             <div class="phone-header">
                                                 <p class="type">Type</p>
                                                 <p class="code">Code</p>
                                                 <p class="number">Number</p>
                                             </div>
                                             <hr>
-                                            <div class="phone-inputs">
-                                                <select name="type2" id="type" class="type-input">
-                                                    <option value="Cell">Cell</option>
-                                                    <option value="Landline">Landline</option>
-                                                </select>
-                                                <select name="code2" id="code" class="code-input">
-                                                    <option value="+1">+1</option>
-                                                    <option value="+91">+91</option>
-                                                </select>
-                                                <input type="text" name="number2" id="number" class="number-input">
+                                            <div class="phone-inputs-wrapper" id="phone-inputs-wrapper">
+                                                <div id="phone-inputs" class="phone-inputs"> 
+                                                    <select name="type" id="type" class="type-input">
+                                                        <option value="Cell">Cell</option>
+                                                        <option value="Landline">Landline</option>
+                                                    </select>
+                                                    <select name="code" id="code" class="code-input">
+                                                        <option value="+1">+1</option>
+                                                        <option value="+91">+91</option>
+                                                    </select>
+                                                    <input type="text" name="number" id="number" class="number-input">
+                                                    <i class="fa-solid fa-trash-can" style="margin-left: 20px; margin-top: 7px;" onclick="removePhoneField(this)"></i>
+                                                </div>
+                                                
                                             </div>
                                         </div>
                                         <div class="fax">
@@ -380,7 +394,6 @@
                                         <div class="website">
                                             <h3>Website</h3><i class="fa-solid fa-circle-plus"></i>
                                         </div>
-                                        
                                     </fieldset>
                                 </div>
                                 
@@ -494,7 +507,7 @@
                                             
                                         <label for="dob">DOB:</label>
                                             <input type="date" name="dob" id="dob" onchange="checkAge()">
-                                        <span>59 Y, 4 M, 29 D</span><br>
+                                        <br>
                                         <label for="lang-pref">Pref Language:</label>
                                         <select name="lang-pref" id="lang-pref">
                                                 <option value="English">English</option>

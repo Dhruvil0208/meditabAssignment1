@@ -74,7 +74,7 @@ const contactFormHTML = `<div class="address1">
     </legend>
     <div class="address-field">
         <div class="address-field-header">
-            <h3>Address</h3><i class="fa-solid fa-trash"></i>
+            <h3>Address<i class="fa-solid fa-circle-plus"></i></h3><i class="fa-solid fa-trash-can" onclick="removeContactField(this)"></i>
         </div>
         <div class="address-field-container">
            <div class="address-street">
@@ -105,29 +105,33 @@ const contactFormHTML = `<div class="address1">
                     </select>
                 </div>
                 <div>
-                    <label for=""><i class="fa-solid fa-trash"></i></label>
+                    <label for=""><i class="fa-solid fa-trash-can"></i></label>
                 </div>
            </div>
         </div>  
     </div>
     <div class="phone">
-        <h3>Phone</h3><i class="fa-solid fa-circle-plus"></i>
+        <h3>Phone</h3><i class="fa-solid fa-circle-plus" onclick="addPhone(this)"></i>
         <div class="phone-header">
             <p class="type">Type</p>
             <p class="code">Code</p>
             <p class="number">Number</p>
         </div>
         <hr>
-        <div class="phone-inputs">
-            <select name="type" id="type" class="type-input">
-                <option value="Cell">Cell</option>
-                <option value="Landline">Landline</option>
-            </select>
-            <select name="code" id="code" class="code-input">
-                <option value="+1">+1</option>
-                <option value="+91">+91</option>
-            </select>
-            <input type="text" name="number" id="number" class="number-input">
+        <div class="phone-inputs-wrapper" id="phone-inputs-wrapper">
+            <div id="phone-inputs" class="phone-inputs"> 
+                <select name="type" id="type" class="type-input">
+                    <option value="Cell">Cell</option>
+                    <option value="Landline">Landline</option>
+                </select>
+                <select name="code" id="code" class="code-input">
+                    <option value="+1">+1</option>
+                    <option value="+91">+91</option>
+                </select>
+                <input type="text" name="number" id="number" class="number-input">
+                <i class="fa-solid fa-trash-can" style="margin-left: 20px; margin-top: 7px;" onclick="removePhoneField(this)"></i>
+            </div>
+            
         </div>
     </div>
     <div class="fax">
@@ -147,6 +151,29 @@ function addContactField (){
   document.getElementById("address-container").innerHTML += contactFormHTML;
 }
 
-function removeContactForm(deleteBtn){
-  deleteBtn.closest('.contact-detail-form').remove();
+function removeContactField(deleteButton){
+  deleteButton.closest('.address1').remove();
 }
+
+const phoneDetails = `<div id="phone-inputs" class="phone-inputs"> 
+<select name="type" id="type" class="type-input">
+    <option value="Cell">Cell</option>
+    <option value="Landline">Landline</option>
+</select>
+<select name="code" id="code" class="code-input">
+    <option value="+1">+1</option>
+    <option value="+91">+91</option>
+</select>
+<input type="text" name="number" id="number" class="number-input">
+<i class="fa-solid fa-trash-can" style="margin-left: 20px; margin-top: 7px;" onclick="removePhoneField(this)"></i>
+</div>`
+
+let phoneFieldCount = 1 ;
+
+function addPhone(button){
+    button.closest('.phone').querySelector('.phone-inputs-wrapper').innerHTML+= phoneDetails; 
+}
+ 
+function removePhoneField(deleteButton){
+    deleteButton.closest('.phone-inputs').remove();
+  }
