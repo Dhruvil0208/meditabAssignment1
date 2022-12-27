@@ -263,15 +263,15 @@ button{
     width: 150px;
     margin: 4px;
     text-align: right;
-    font-size: medium;
+    font-size: small;
 }
 
 .column input,select{
-    width: 200px;
+    width: 250px;
     padding-left: 15px;
     margin:4px;
     /* border-radius: 4px; */
-    height: 30px;
+    height: 25px;
 
 }
 #interpreter{
@@ -303,6 +303,9 @@ button{
     padding:10px;
    
     background-color: #ffffff;
+}
+.form2 i:hover{
+    cursor: pointer;
 }
 
 .contact-header{
@@ -337,7 +340,7 @@ button{
     display:block;
     margin:1%;
     width: 75%;
-    height:30px;
+    height: 25px;
 }
 .address-street label{
     display:block;
@@ -353,7 +356,7 @@ button{
     display:block;
     margin:3%;
     width: 80%;
-    height:30px;
+    height:25px;
 }
 .address-rest label{
     display:block;
@@ -366,7 +369,7 @@ button{
     display:block;
     margin:3%;
     width: 173px;
-    height:30px;
+    height:25px;
 }
 
 #state {
@@ -422,15 +425,38 @@ button{
     margin: 1%;
 }
 
+.fax-header{
+    display: flex;
+    margin-left: 1%;
+}
+
+.fax-inputs{
+    display:flex;
+}
+
 .email h3{
     display:inline-block;
     margin: 1%;
+}
+
+
+.email-input input {
+    width: 50%;
+    margin: 1%;
+    height: 25px;
 }
 
 .website h3{
     display: inline-block;
     margin: 1%;
 }
+
+.website-input input {
+    width: 50%;
+    margin: 1%;
+    height: 25px;
+}
+
 .address1 fieldset{
     border:  1px solid #e0e0e0;
     height: 100%;

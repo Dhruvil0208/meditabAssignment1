@@ -238,7 +238,7 @@
                                         </legend>
                                         <div class="address-field">
                                             <div class="address-field-header">
-                                                <h3>Address<i class="fa-solid fa-circle-plus"></i></h3><i class="fa-solid fa-trash-can" onclick="removeContactField(this)"></i>
+                                                <h3>Address<i class="fa-solid fa-circle-plus" style="display:none;" onclick="addAddressField(this)"></i></h3><i class="fa-solid fa-trash-can" onclick="removeContactField(this)"></i>
                                             </div>
                                             <div class="address-field-container">
                                                <div class="address-street">
@@ -269,7 +269,7 @@
                                                         </select>
                                                     </div>
                                                     <div>
-                                                        <label for=""><i class="fa-solid fa-trash-can"></i></label>
+                                                        <label for=""><i class="fa-solid fa-trash-can" onclick="removeAddressField(this)"></i></label>
                                                     </div>
                                                </div>
                                             </div>  
@@ -306,19 +306,22 @@
                                             </div>
                                         </div>
                                         <div class="fax">
-                                            <h3>Fax</h3><i class="fa-solid fa-circle-plus"></i>
-                                            <div class="phone-header">
-                                                
-                                                <p class="code">Code</p>
-                                                <p class="number">Number</p>
+                                            <h3>Fax</h3><i class="fa-solid fa-circle-plus" onclick="addFax(this)"></i>
+                                            <div class="fax-wrapper">
+            
                                             </div>
-                                            <hr>
                                         </div>
                                         <div class="email">
-                                            <h3>Email</h3><i class="fa-solid fa-circle-plus"></i>
+                                            <h3>Email</h3><i class="fa-solid fa-circle-plus" onclick="addEmail(this)"></i>
+                                            <div class="email-input-wrapper" >
+                                               
+                                            </div>
                                         </div>
                                         <div class="website">
-                                            <h3>Website</h3><i class="fa-solid fa-circle-plus"></i>
+                                            <h3>Website</h3><i class="fa-solid fa-circle-plus" onclick="addWebsite(this)"></i>
+                                            <div class="website-input-wrapper" >
+                                               
+                                            </div>
                                         </div>
                                     </fieldset>
                                 </div>
@@ -400,19 +403,22 @@
                                             </div>
                                         </div>
                                         <div class="fax">
-                                            <h3>Fax</h3><i class="fa-solid fa-circle-plus"></i>
-                                            <div class="phone-header">
-                                                
-                                                <p class="code">Code</p>
-                                                <p class="number">Number</p>
+                                            <h3>Fax</h3><i class="fa-solid fa-circle-plus" onclick="addFax(this)"></i>
+                                            <div class="fax-wrapper">
+            
                                             </div>
-                                            <hr>
                                         </div>
                                         <div class="email">
-                                            <h3>Email</h3><i class="fa-solid fa-circle-plus"></i>
+                                            <h3>Email</h3><i class="fa-solid fa-circle-plus" onclick="addEmail(this)"></i>
+                                            <div class="email-input-wrapper" >
+                                               
+                                            </div>
                                         </div>
                                         <div class="website">
-                                            <h3>Website</h3><i class="fa-solid fa-circle-plus"></i>
+                                            <h3>Website</h3><i class="fa-solid fa-circle-plus" onclick="addWebsite(this)"></i>
+                                            <div class="website-input-wrapper" >
+                                               
+                                            </div>
                                         </div>
                                     </fieldset>
                                 </div>
