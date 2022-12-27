@@ -6,7 +6,7 @@
     
 }
 
-input , select ,hr{
+input , select ,hr ,textarea{
     border: 1px solid #e0e0e0;
     border-radius: 5px;
 }
@@ -266,7 +266,7 @@ button{
     font-size: small;
 }
 
-.column input,select{
+.column input,select,textarea{
     width: 250px;
     padding-left: 15px;
     margin:4px;
@@ -518,3 +518,4 @@ td, th {
 .other-toggle {
     cursor: pointer;
 }
+

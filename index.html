@@ -335,7 +335,7 @@
                                         </legend>
                                         <div class="address-field">
                                             <div class="address-field-header">
-                                                <h3>Address<i class="fa-solid fa-circle-plus"></i></h3><i class="fa-solid fa-trash-can" onclick="removeContactField(this)"></i>
+                                                <h3>Address<i class="fa-solid fa-circle-plus" style="display:none;" onclick="addAddressField(this)"></i></h3><i class="fa-solid fa-trash-can" onclick="removeContactField(this)"></i>
                                             </div>
                                             <div class="address-field-container">
                                                <div class="address-street">
@@ -366,7 +366,7 @@
                                                         </select>
                                                     </div>
                                                     <div>
-                                                        <label for=""><i class="fa-solid fa-trash-can"></i></label>
+                                                        <label for=""><i class="fa-solid fa-trash-can" onclick="removeAddressField(this)"></i></label>
                                                     </div>
                                                </div>
                                             </div>  
@@ -422,7 +422,6 @@
                                         </div>
                                     </fieldset>
                                 </div>
-                                
                             </div>
                         </div>
                         <div class="form3">
@@ -501,119 +500,107 @@
                                     <div class="column">
                                         
 
-                                        <label for="prefix">Prefix:</label>
-                                            <input type="text" name="prefix" id="prefix">
+                                        <label for="Employment">Employment:</label>
+                                        <select name="Employment" id="Employment">
+                                            <option value="Full Time">Full time employed</option>
+                                            <option value="Part Time">Part time employed</option>
+                                            <option value="Unemployed">Unemployed</option>
+                                            <option value="Self-employed">Self-employed</option>
+                                            <option value="Retired">Retired</option>
+                                            <option value="Unknown">Unknown</option>
+                                        </select>
                                         <br>
-                                        <label for="fname">First Name:</label>
-                                            <input type="text" name="fname" id="fname" required>
+                                        <label for="first called date">First Called Date:</label>
+                                            <input type="date" name="first called date" id="firstCalledDate" >
                                         <br>
-                                        <label for="mname">Middle Name:</label>
-                                            <input type="text" name="mname" id="mname">
+                                        <label for="Deceased Time">Deceased Time:</label>
+                                            <input type="date" name="Deceased Time" id="Deceased Time" disabled>
                                         <br>
-                                        <label for="lname1">Last Name1:</label>
-                                            <input type="text" name="lname1" id="lname1" required>
+                                        <label for="mothersLname">Mother's Last Name:</label>
+                                            <input type="text" name="mothersLname" id="mothersLname" required>
                                         <br>
-                                        <label for="lname2">Last Name2:</label>
-                                            <input type="text" name="lname2" id="lname2">
+                                        <label for="Birth Place">Birth Place:</label>
+                                            <input type="text" name="Birth Place" id="Birth Place">
                                         <br>
-                                        <label for="suffix">Suffix:</label>
-                                            <input type="text" name="suffix" id="suffix">
+                                        <label for="Citizenship">Citizenship:</label>
+                                        <select name="Citizenship" id="Citizenship">
+                                            <option value="American">American</option>
+                                            <option value="Indian">Indian</option>
+                                        </select>
                                         <br>
-                                        <label for="aka">AKA:</label>
-                                            <input type="text" name="aka" id="aka">
+                                        <div style="display:flex;">
+                                            <label for="Note">Note:</label>
+                                            <textarea  style="resize: vertical;" name="Note" id="Note">
+                                                
+                                            </textarea>
+                                        </div>
+                                        
                                         <br>
                                 </div>
                                 <div class="column">
-                                        <label for="sex"> Sex*:</label>
-                                        <select name="sex" id="sex">
+                                        <label for="Gender Identity">Gender Identity:</label>
+                                        <select name="Gender Identity" id="Gender Identity">
                                             <option value="Male">Male</option>
                                             <option value="Female">Female</option>
                                             <option value="Unknown">Unknown</option>
                                         </select><br>
                                             
-                                        <label for="dob">DOB:</label>
-                                            <input type="date" name="dob" id="dob" onchange="checkAge()">
+                                        <label for="Referral Source">Referral Source:</label>
+                                        <select name="Referral Source" id="Referral Source">
+                                            <option value="Kaiser Hospital">Kaiser Hospital</option>
+                                        </select>
                                         <br>
-                                        <label for="lang-pref">Pref Language:</label>
-                                        <select name="lang-pref" id="lang-pref">
-                                                <option value="English">English</option>
-                                                <option value="Hindi">Hindi</option>
-                                                <option value="Gujarati">Gujarati</option>
-                                            </select><br>
-                                        <label for="interpreter">Interpreter:</label>
-                                            <input type="checkbox" name="interpreter" id="interpreter"><br>
-                                        <label for="status">Status:</label>
-                                            <select name="status" id="status">
-                                                <option value="First Appointment Pending">First Appointment Pending</option>
-                                                <option value="Registration Entry Pending">Registration Entry Pending</option>
-                                                <option value="Immunizations Pending">Immunizations Pending</option>
-                                                <option value="Insurance inclusion Pending">Insurance inclusion Pending</option>
-                                            </select><br>
-                                        <label>Risk:</label><span> High </span><i class="fa-solid fa-pencil"></i><br>
-                                        <label for="Marital Status">Marital Status:</label>
-                                            <select name="Marital Status" id="Marital Status">
-                                                <option value="Married">Married</option>
-                                                <option value="Never Married">Never Married</option>
-                                                <option value="Divorced">Divorced</option>
-                                            </select><br>
-                                        <label for="ssn">SSN:</label>
-                                            <input type="text" name="ssn" id="ssn"><br>
-                                        <label for="race">Race:</label>
-                                            <select name="race" id="race">
-                                                <option value="White">White</option>
-                                                <option value="Asian">Asian</option>
-                                                <option value="Black">Black</option>
-                                                <option value="Other">Other</option>
-                                            </select><br>
-                                        <label for="ethnicity">Ethnicity:</label>
-                                            <select name="ethnicity" id="">
-                                                <option value="Other Ethnicity">Other Ethnicity</option>
-                                                <option value="Unreported/Refuced to report">Unreported/Refuced to report</option>
-                                                <option value="Hispanic/Latino">Hispanic/Latino</option>
-                                                <option value="Non-Hispanic/Latino">Non-Hispanic/Latino</option>
+
+                                        <label for="Mother's Maiden">Mother's Maiden:</label>
+                                            <input type="text" name="Mother's Maiden" id="Mother's Maiden">
+                                            <br>
+
+                                        <label for="Mother Identifier">Mother Identifier:</label>
+                                            <input type="text" name="Mother Identifier" id="Mother Identifier">
+                                            <br>
+                                        
+                                        <label for="Multiple Birth">Multiple Birth:</label>
+                                            <input type="checkbox" style="height:15px; width:15px; margin-top: 10px;">
+                                            <input type="text" disabled style="width: 225px;">
+                                            <br>
+                                        
+                                        
+                                        <label for="Religion">Religion:</label>
+                                            <select name="Religion" id="Religion">
+                                                <option value="Christianity">Christianity</option>
+                                                <option value="Hindu">Hindu</option>
+                                                <option value="Agnostic">Agnostic</option>
+                                                
                                             </select>
                                 </div>
                                 <div class="column">
-                                    <label for="selfpay">Self Pay:</label>
-                                        <input type="checkbox" name="selfpay" id="selfpay"><br>
-                                    <label for="facility">Default Facility:</label>
-                                        <select name="facility" id="facility">
-                                            <option value="FAC1">FAC1</option>
-                                            <option value="FAC2">FAC2</option>
-                                            <option value="FAC3">FAC3</option>
+                                    <label for="Sexual Orientation">Sexual Orientation:</label>
+                                        <select name="Sexual Orientation" id="Sexual Orientation">
+                                            <option value="Bisexual">Bisexual</option>
+                                            <option value="Homosexual">Homosexual</option>
+                                            <option value="Heterosexual">Heterosexual</option>
                                         </select><br>
-                                    <label for="def-provider">Default Provider:</label>
-                                        <select name="def-provider" id="def-provider">
-                                            <option value="Jordan Smith">Jordan Smith</option>
-                                            <option value="Jordan Smith">Jordan Smith</option>
-                                            <option value="Jordan Smith">Jordan Smith</option>
-                                        </select><br>
-                                    <label for="timezone">Timezone:</label>
-                                        <select name="tomezone" id="timezone">
-                                            <option value="GMT">GMT</option>
-                                            <option value="IST">IST</option>
-                                            <option value="PST">PST</option>
-                                        </select><br>
-                                    <label for="pharma">Default Pharmacy:</label>
-                                        <select name="pharma" id="pharma">
-                                            <option value="pharma1">Pharma1</option>
-                                            <option value="pharma2">Pharma2</option>
-                                            <option value="pharma3">Pharma3</option>
-                                        </select><br>
-                                    <label for="prescription">Use current pharmacy for all Rx:</label>
-                                        <input type="checkbox" name="prescription" id="prescription">
+                                    <label for="Multiple Birth">Deceased:</label>
+                                        <input type="checkbox" style="height:15px; width:15px; margin-top: 10px;">
+                                        <input type="date" disabled style="width: 225px;">
                                     <br>
-                                    <label for="provider">PCP same as Provider:</label>
-                                        <input type="checkbox" name="provider" id="provider">
-                                    <br>
-                                    <label for="PCP">PCP:</label>
-                                        <select name="PCP" id="PCP">
-                                                <option value="Jordan Smith">Jordan Smith</option>
-                                                <option value="Jordan Smith">Jordan Smith</option>
-                                                <option value="Jordan Smith">Jordan Smith</option>
+                                    <label for="Mother's Middle Name">Mother's Middle Name:</label>
+                                        <input type="text" name="Mother's Middle Name" id="Mother's Middle Name">
+                                        <br>
+                                    <label for="Veteran Military Status">Veteran Military Status:</label>
+                                        <select name="Veteran Military Status" id="Veteran Military Status">
+                                            
                                         </select><br>
-                                    <label for="fee">Fee Schedule:</label>
-                                        <select name="fee" id="fee" disabled="disabled"></select>
+                                    <label for="Nationality">Nationality:</label>
+                                        <select name="Nationality" id="Nationality">
+                                            <option value="American">American</option>
+                                            <option value="Indian">Indian</option>
+                                        </select>
+                                        <br>
+                                    <label for="Driver's Liscense">Driver's Liscense:</label>
+                                        <input type="text" name="Driver's Liscense" id="Driver's Liscense">
+                                        <br>
+                                    
                                 </div>
                             </div>
                             </div>
