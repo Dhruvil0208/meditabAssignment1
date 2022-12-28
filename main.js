@@ -206,10 +206,10 @@ function addPhone(button){
 
         if(button.closest('.phone').querySelector('.phone-wrapper').childElementCount == 0)
             {
-                button.closest('.phone').querySelector('.phone-wrapper').innerHTML += phoneLabel;
+                button.closest('.phone').querySelector('.phone-wrapper').insertAdjacentHTML('beforeend',phoneLabel);
             }
             
-            button.closest('.phone').querySelector('.phone-wrapper').innerHTML += phoneInput;
+            button.closest('.phone').querySelector('.phone-wrapper').insertAdjacentHTML('beforeend',phoneInput);
     }
  
 function removePhoneField(deleteButton){
@@ -248,9 +248,9 @@ const faxInput=`<div class="fax-inputs-wrapper" id="fax-inputs-wrapper">
 function addFax(button){
     if(button.closest('.fax').querySelector('.fax-wrapper').childElementCount == 0)
     {
-        button.closest('.fax').querySelector('.fax-wrapper').innerHTML += faxLabel;
+        button.closest('.fax').querySelector('.fax-wrapper').insertAdjacentHTML('beforeend',faxLabel);
     }
-    button.closest('.fax').querySelector('.fax-wrapper').innerHTML += faxInput;
+    button.closest('.fax').querySelector('.fax-wrapper').insertAdjacentHTML("beforeend",faxInput);
 }
 
 function removeFax(deleteButton){
@@ -270,7 +270,7 @@ const emailInput = `<div class="email-input">
 </div>`
 
 function addEmail(button){
-    button.closest('.email').querySelector(".email-input-wrapper").innerHTML += emailInput;
+    button.closest('.email').querySelector(".email-input-wrapper").insertAdjacentHTML('beforeend',emailInput);
 }
 
 function removeEmail(deleteButton){
@@ -281,13 +281,13 @@ function removeEmail(deleteButton){
 //function to add and delete website
 
 websiteInput = `<div class="website-input">
-<input type="text"> 
+<input type="url"> 
 <i class="fa-solid fa-trash-can" style="margin-left: 20px; margin-top: 7px;" onclick="removeWebsite(this)"></i>
 </div>`
 
 function addWebsite(button)
 {
-    button.closest('.website').querySelector('.website-input-wrapper').innerHTML += websiteInput;
+    button.closest('.website').querySelector('.website-input-wrapper').insertAdjacentHTML('beforeend',websiteInput);
 
 }
 
