@@ -32,3 +32,131 @@ Upload it on this link https://drive.google.com/drive/folders/1VyEYvo8nYMF2H15i3
 
 
 https://chartio.com/resources/tutorials/how-to-define-an-auto-increment-primary-key-in-postgresql/
+
+drop table if exists PATIENT_DHR;
+
+create table PATIENT_DHR(
+	PATIENT_ID SERIAL primary key ,
+	FIRST_NAME VARCHAR(20) not null,
+	LAST_NAME VARCHAR(20) not null,
+	MIDDLE_NAME VARCHAR(20),
+	DOB DATE not null,
+	SEX_ID INT not null references SEX(SEX_ID),
+	RACE_ID INT,
+	CREATED_AT TIMESTAMP default CURRENT_TIMESTAMP ,
+	UPATED_AT TIMESTAMP 
+)
+
+
+insert into patient_dhr (FIRST_NAME,LAST_NAME,MIDDLE_NAME,DOB,SEX_ID,RACE_ID) values ('dhruv','chaudhary','rakesh','2001-08-02','1','1');
+
+select * from patient_dhr;
+
+create table sex (
+	SEX_ID SERIAL primary key,
+	SEX VARCHAR(29)
+)
+
+insert into sex(SEX) values ('MALE');
+insert into sex(SEX) values ('FEMALE');
+insert into sex(SEX) values ('OTHERS');
+
+select * from SEX
+
+create table RACE (
+RACE_ID SERIAL primary key,
+RACE VARCHAR(20)
+)
+
+create table PATIENT_RACE (
+	
+)
+
+//new update
+
+
+create table patient (
+patient_id serial primary key,
+first_name varchar(25),
+last_name varchar (25),
+middle_name varchar(25),
+sex_id int references sex(sex_id),
+created_at timestamp default current_timestamp,
+updated_at timestamp
+)
+
+create table sex(
+sex_id serial primary key,
+sex varchar(25),
+created_at timestamp default current_timestamp,
+updated_at timestamp
+)
+
+create table race(
+race_id serial primary key ,
+race varchar(25),
+created_at timestamp default current_timestamp,
+updated_at timestamp
+)
+
+create table patient_race (
+patient_race_id  serial primary key,
+race_id int references race(race_id),
+patient_id int references patient(patient_id),
+created_at timestamp default current_timestamp,
+updated_at timestamp
+)
+
+create table address_type(
+address_type_id serial primary key,
+address_type varchar(25),
+created_at timestamp default current_timestamp,
+updated_at timestamp
+)
+
+create table address(
+address_id serial primary key ,
+patient_id int references patient(patient_id),
+address_type int references address_type(address_type_id),
+street varchar(25),
+zip int not null,
+city varchar(25),
+_state varchar(25),
+country varchar(25),
+created_at timestamp default current_timestamp,
+updated_at timestamp
+)
+
+create table phone_type(
+phone_type_id serial primary key,
+phoen_type varchar(25),
+created_at timestamp default current_timestamp,
+updated_at timestamp
+)
+
+create table phone(
+phone_id serial primary key,
+phone_number int ,
+phone_type_id int references phone_type(phone_type_id),
+address_id int references address(address_id),
+created_at timestamp default current_timestamp,
+updated_at timestamp
+)
+
+create table fax(
+fax serial primary key,
+fax_number int,
+address_id int references address(address_id),
+created_at timestamp default current_timestamp,
+updated_at timestamp
+)
+
+create table preferences(
+preferences_id serial primary key,
+prefernce varchar(25),
+phone_id int references phone(phone_id),
+fax_id int references fax(fax),
+address_id int references address(address_id),
+created_at timestamp default current_timestamp,
+updated_at timestamp
+)
