@@ -1,0 +1,5 @@
+Create View to fetch the result of FirstName, LastName, MiddleName, DOB, Chart Number, Sex , Race , Primary Address, Primary Phone, Primary Fax.
+Write Query to fetch unique record from the Patient table based on Firstname, LastName, DOB and Sex with number of occurance(count) of same data.
+Create Function to stored the data into patient table. Pass all the value in the function parameter and function should return the created new primary key value of the table.
+Create Function to get the result of patient’s data by using patientId, lastname, firstname, sex, dob. Need to implement the pagination and sorting(LastName, Firstname, Sex, DOB) in this function.
+Write Query to search the patient by patient’s phone no
