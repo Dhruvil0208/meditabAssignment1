@@ -33,47 +33,20 @@ Upload it on this link https://drive.google.com/drive/folders/1VyEYvo8nYMF2H15i3
 
 https://chartio.com/resources/tutorials/how-to-define-an-auto-increment-primary-key-in-postgresql/
 
-drop table if exists PATIENT_DHR;
-
-create table PATIENT_DHR(
-	PATIENT_ID SERIAL primary key ,
-	FIRST_NAME VARCHAR(20) not null,
-	LAST_NAME VARCHAR(20) not null,
-	MIDDLE_NAME VARCHAR(20),
-	DOB DATE not null,
-	SEX_ID INT not null references SEX(SEX_ID),
-	RACE_ID INT,
-	CREATED_AT TIMESTAMP default CURRENT_TIMESTAMP ,
-	UPATED_AT TIMESTAMP 
-)
 
 
-insert into patient_dhr (FIRST_NAME,LAST_NAME,MIDDLE_NAME,DOB,SEX_ID,RACE_ID) values ('dhruv','chaudhary','rakesh','2001-08-02','1','1');
+create table sex(
+sex_id serial primary key,
+sex varchar(25),
+created_at timestamp default current_timestamp,
+updated_at timestamp
+);
 
-select * from patient_dhr;
+insert into sex(sex) values ('male');
+insert into sex(sex) values ('female');
+insert into sex(sex) values ('unknown');
 
-create table sex (
-	SEX_ID SERIAL primary key,
-	SEX VARCHAR(29)
-)
-
-insert into sex(SEX) values ('MALE');
-insert into sex(SEX) values ('FEMALE');
-insert into sex(SEX) values ('OTHERS');
-
-select * from SEX
-
-create table RACE (
-RACE_ID SERIAL primary key,
-RACE VARCHAR(20)
-)
-
-create table PATIENT_RACE (
-	
-)
-
-//new update
-
+select * from sex;
 
 create table patient (
 patient_id serial primary key,
@@ -81,23 +54,37 @@ first_name varchar(25),
 last_name varchar (25),
 middle_name varchar(25),
 sex_id int references sex(sex_id),
+chart_id varchar(25) generated always as ( 'chart' || patient_id::text) stored,
+dob date,
 created_at timestamp default current_timestamp,
 updated_at timestamp
-)
+);
 
-create table sex(
-sex_id serial primary key,
-sex varchar(25),
-created_at timestamp default current_timestamp,
-updated_at timestamp
-)
+insert into patient(first_name,last_name,middle_name,sex_id,dob) values ('dhruvil','chaudhary','rakesh',1,'2001-08-02');
+insert into patient(first_name,last_name,middle_name,sex_id,dob) values ('heeya','chaudhary','rakesh',2,'2005-11-22');
+
+
+select * from patient;
+
+
+
+
+
+
+
 
 create table race(
 race_id serial primary key ,
 race varchar(25),
 created_at timestamp default current_timestamp,
 updated_at timestamp
-)
+);
+
+insert into race(race) values ('african');
+insert into race(race) values ('asian');
+insert into race(race) values ('american');
+
+select * from race;
 
 create table patient_race (
 patient_race_id  serial primary key,
@@ -105,14 +92,26 @@ race_id int references race(race_id),
 patient_id int references patient(patient_id),
 created_at timestamp default current_timestamp,
 updated_at timestamp
-)
+);
+
+insert into patient_race(patient_id,race_id) values ('1','2');
+insert into patient_race(patient_id,race_id) values ('1','3');
+insert into patient_race(patient_id,race_id) values ('2','3');
+
+select * from patient_race;
 
 create table address_type(
 address_type_id serial primary key,
 address_type varchar(25),
 created_at timestamp default current_timestamp,
 updated_at timestamp
-)
+);
+
+insert into address_type (address_type) values ('home');
+insert into address_type (address_type) values ('work');
+insert into address_type (address_type) values ('others');
+
+select * from address_type;
 
 create table address(
 address_id serial primary key ,
@@ -125,38 +124,67 @@ _state varchar(25),
 country varchar(25),
 created_at timestamp default current_timestamp,
 updated_at timestamp
-)
+);
+
+insert into address(patient_id,address_type,street,zip,city,_state,country) values
+(1,1,'g-1 sunrise park',380004,'ahmedabad','gujarat','india');
+insert into address(patient_id,address_type,street,zip,city,_state,country) values
+(2,2,'g-1 sunrise park',380004,'ahmedabad','gujarat','india');
+
+select * from address;
+
 
 create table phone_type(
 phone_type_id serial primary key,
-phoen_type varchar(25),
+phone_type varchar(25),
 created_at timestamp default current_timestamp,
 updated_at timestamp
-)
+);
+
+insert into phone_type(phone_type) values ('cell');
+insert into phone_type(phone_type) values ('landline');
+
+select * from phone_type;
+
 
 create table phone(
 phone_id serial primary key,
-phone_number int ,
+phone_number  numeric,
 phone_type_id int references phone_type(phone_type_id),
 address_id int references address(address_id),
 created_at timestamp default current_timestamp,
 updated_at timestamp
-)
+);
+
+insert into phone(phone_number,phone_type_id,address_id) values ('9016873801',1,1);
+insert into phone(phone_number,phone_type_id,address_id) values ('7922868506',2,1);
+
+select * from phone;
 
 create table fax(
 fax serial primary key,
-fax_number int,
+fax_number numeric,
 address_id int references address(address_id),
 created_at timestamp default current_timestamp,
 updated_at timestamp
-)
+);
+
+insert into fax(fax_number,address_id) values ('7486877290',1);
+insert into fax(fax_number,address_id) values ('7486877260',1);
+
+select * from fax;
+
+
 
 create table preferences(
 preferences_id serial primary key,
-prefernce varchar(25),
+preference varchar(25),
 phone_id int references phone(phone_id),
 fax_id int references fax(fax),
 address_id int references address(address_id),
 created_at timestamp default current_timestamp,
 updated_at timestamp
-)
+);
+
+insert into preferences(preference,phone_id,fax_id,address_id) values ('primary',2,1,1);
+select * from preferences;
