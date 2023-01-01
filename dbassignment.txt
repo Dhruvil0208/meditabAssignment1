@@ -195,19 +195,24 @@ patient.sex_id = sex.sex_id
 group by first_name,last_name,dob,sex
 having count(*)>1;
 
-select * from phone 
-left join  phone_type on
-phone.phone_type_id = phone_type.phone_type_id
+select first_name,last_name,dob,sex,race,address_type,street,zip,city,_state,country,phone_number,fax_number
+from patient 
+left join sex on 
+patient.sex_id = sex.sex_id
+left join patient_race on 
+patient.patient_id = patient_race.patient_id
+left join race on 
+race.race_id = patient_race.patient_race_id
+left join address on 
+patient.patient_id = address.patient_id
+left join phone on
+address.address_id = phone.address_id
 left join preferences on
-preferences.phone_id = phone.phone_id
-where preference = 'primary';
-
-select phone_number , phone_type , preference from phone 
-left join  phone_type on
-phone.phone_type_id = phone_type.phone_type_id
-left join preferences on
-preferences.phone_id = phone.phone_id
-where preference = 'primary';
+phone.phone_id = preferences.phone_id
+left join fax on 
+fax.fax = preferences.fax_id
+where preference = 'primary'
+;
 
 
 CREATE OR REPLACE  PROCEDURE insert_data(
@@ -227,3 +232,12 @@ $$;
 call insert_data('rakesh','chaudhary','jayantilal',1,'1973-09-29');
 
 select * from patient;
+
+
+
+select first_name,last_name,middle_name,dob,chart_id from
+patient left join address on 
+patient.patient_id = address.patient_id
+left join phone on 
+address.address_id = phone.phone_id
+where phone_number = '9016873801';

@@ -3,3 +3,230 @@ Write Query to fetch unique record from the Patient table based on Firstname, La
 Create Function to stored the data into patient table. Pass all the value in the function parameter and function should return the created new primary key value of the table.
 Create Function to get the result of patient’s data by using patientId, lastname, firstname, sex, dob. Need to implement the pagination and sorting(LastName, Firstname, Sex, DOB) in this function.
 Write Query to search the patient by patient’s phone no
+
+
+create table sex(
+sex_id serial primary key,
+sex varchar(25),
+created_at timestamp default current_timestamp,
+updated_at timestamp
+);
+
+insert into sex(sex) values ('male');
+insert into sex(sex) values ('female');
+insert into sex(sex) values ('unknown');
+
+select * from sex;
+
+create table patient (
+patient_id serial primary key,
+first_name varchar(25),
+last_name varchar (25),
+middle_name varchar(25),
+sex_id int references sex(sex_id),
+chart_id varchar(25) generated always as ( 'chart' || patient_id::text) stored,
+dob date,
+created_at timestamp default current_timestamp,
+updated_at timestamp
+);
+
+insert into patient(first_name,last_name,middle_name,sex_id,dob) values ('dhruvil','chaudhary','rakesh',1,'2001-08-02');
+insert into patient(first_name,last_name,middle_name,sex_id,dob) values ('heeya','chaudhary','rakesh',2,'2005-11-22');
+
+select * from patient;
+
+
+
+
+
+
+
+
+create table race(
+race_id serial primary key ,
+race varchar(25),
+created_at timestamp default current_timestamp,
+updated_at timestamp
+);
+
+insert into race(race) values ('african');
+insert into race(race) values ('asian');
+insert into race(race) values ('american');
+
+select * from race;
+
+create table patient_race (
+patient_race_id  serial primary key,
+race_id int references race(race_id),
+patient_id int references patient(patient_id),
+created_at timestamp default current_timestamp,
+updated_at timestamp
+);
+
+insert into patient_race(patient_id,race_id) values ('1','2');
+insert into patient_race(patient_id,race_id) values ('1','3');
+insert into patient_race(patient_id,race_id) values ('2','3');
+
+select * from patient_race;
+
+create table address_type(
+address_type_id serial primary key,
+address_type varchar(25),
+created_at timestamp default current_timestamp,
+updated_at timestamp
+);
+
+insert into address_type (address_type) values ('home');
+insert into address_type (address_type) values ('work');
+insert into address_type (address_type) values ('others');
+
+select * from address_type;
+
+create table address(
+address_id serial primary key ,
+patient_id int references patient(patient_id),
+address_type int references address_type(address_type_id),
+street varchar(25),
+zip int not null,
+city varchar(25),
+_state varchar(25),
+country varchar(25),
+created_at timestamp default current_timestamp,
+updated_at timestamp
+);
+
+insert into address(patient_id,address_type,street,zip,city,_state,country) values
+(1,1,'g-1 sunrise park',380004,'ahmedabad','gujarat','india');
+insert into address(patient_id,address_type,street,zip,city,_state,country) values
+(2,2,'g-1 sunrise park',380004,'ahmedabad','gujarat','india');
+
+select * from address;
+
+
+create table phone_type(
+phone_type_id serial primary key,
+phone_type varchar(25),
+created_at timestamp default current_timestamp,
+updated_at timestamp
+);
+
+insert into phone_type(phone_type) values ('cell');
+insert into phone_type(phone_type) values ('landline');
+
+select * from phone_type;
+
+
+create table phone(
+phone_id serial primary key,
+phone_number  numeric,
+phone_type_id int references phone_type(phone_type_id),
+address_id int references address(address_id),
+created_at timestamp default current_timestamp,
+updated_at timestamp
+);
+
+insert into phone(phone_number,phone_type_id,address_id) values ('9016873801',1,1);
+insert into phone(phone_number,phone_type_id,address_id) values ('7922868506',2,1);
+
+select * from phone;
+
+create table fax(
+fax serial primary key,
+fax_number numeric,
+address_id int references address(address_id),
+created_at timestamp default current_timestamp,
+updated_at timestamp
+);
+
+insert into fax(fax_number,address_id) values ('7486877290',1);
+insert into fax(fax_number,address_id) values ('7486877260',1);
+
+select * from fax;
+
+
+
+create table preferences(
+preferences_id serial primary key,
+preference varchar(25),
+phone_id int references phone(phone_id),
+fax_id int references fax(fax),
+address_id int references address(address_id),
+created_at timestamp default current_timestamp,
+updated_at timestamp
+);
+
+insert into preferences(preference,phone_id,fax_id,address_id) values ('primary',2,1,1);
+select * from preferences;
+
+
+select first_name,last_name,dob,sex,count(*) from patient 
+left join sex on 
+patient.sex_id = sex.sex_id
+group by first_name,last_name,dob,sex
+having count(*)>1;
+
+
+select first_name,last_name,dob,sex,race,address_type,street,zip,city,_state,country,phone_number,fax_number
+from patient 
+left join sex on 
+patient.sex_id = sex.sex_id
+left join patient_race on 
+patient.patient_id = patient_race.patient_id
+left join race on 
+race.race_id = patient_race.patient_race_id
+left join address on 
+patient.patient_id = address.patient_id
+left join phone on
+address.address_id = phone.address_id
+left join preferences on
+phone.phone_id = preferences.phone_id
+left join fax on 
+fax.fax = preferences.fax_id
+where preference = 'primary'
+;
+
+
+
+CREATE OR REPLACE  PROCEDURE insert_data(
+first_name varchar(25),
+last_name varchar (25),
+middle_name varchar(25),
+sex_id int ,
+dob date
+)
+LANGUAGE SQL
+AS $$
+insert into patient(first_name,last_name,middle_name,sex_id,dob) values (first_name,last_name,middle_name,sex_id,dob) returning patient_id;
+-- select currval(patient_id);
+$$;
+
+
+call insert_data('rakesh','chaudhary','jayantilal',1,'1973-09-29');
+
+select * from patient;
+
+
+select first_name,last_name,middle_name,dob,chart_id from
+patient left join address on 
+patient.patient_id = address.patient_id
+left join phone on 
+address.address_id = phone.phone_id
+where phone_number = '9016873801';
+
+
+CREATE OR REPLACE FUNCTION udf_GetRowsByPageNumberAndSize(
+ PageNumber INTEGER = NULL,
+ PageSize INTEGER = NULL
+ )
+ RETURNS SETOF public.customer AS
+ $BODY$
+ BEGIN
+  RETURN QUERY
+   SELECT *
+   FROM public.customer
+   ORDER BY customerid
+   LIMIT PageSize
+   OFFSET ((PageNumber-1) * PageSize);
+END;
+$BODY$
+LANGUAGE plpgsql;
