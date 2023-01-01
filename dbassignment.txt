@@ -188,3 +188,42 @@ updated_at timestamp
 
 insert into preferences(preference,phone_id,fax_id,address_id) values ('primary',2,1,1);
 select * from preferences;
+
+select first_name,last_name,dob,sex,count(*) from patient 
+left join sex on 
+patient.sex_id = sex.sex_id
+group by first_name,last_name,dob,sex
+having count(*)>1;
+
+select * from phone 
+left join  phone_type on
+phone.phone_type_id = phone_type.phone_type_id
+left join preferences on
+preferences.phone_id = phone.phone_id
+where preference = 'primary';
+
+select phone_number , phone_type , preference from phone 
+left join  phone_type on
+phone.phone_type_id = phone_type.phone_type_id
+left join preferences on
+preferences.phone_id = phone.phone_id
+where preference = 'primary';
+
+
+CREATE OR REPLACE  PROCEDURE insert_data(
+first_name varchar(25),
+last_name varchar (25),
+middle_name varchar(25),
+sex_id int ,
+dob date
+)
+LANGUAGE SQL
+AS $$
+insert into patient(first_name,last_name,middle_name,sex_id,dob) values (first_name,last_name,middle_name,sex_id,dob) returning patient_id;
+-- select currval(patient_id);
+$$;
+
+
+call insert_data('rakesh','chaudhary','jayantilal',1,'1973-09-29');
+
+select * from patient;
