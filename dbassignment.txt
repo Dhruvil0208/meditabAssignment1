@@ -29,7 +29,7 @@ FIRSTNAME_LASTNAME _ERDIAGRAM_ASSIGNMENT_01.sql
 Upload it on this link https://drive.google.com/drive/folders/1VyEYvo8nYMF2H15i3H4mwvAudAR5sdbd?usp=share_link
 
 https://www.youtube.com/watch?v=Mpl4IWFob4I
-
+https://www.youtube.com/watch?v=Aju549HCtd0
 
 https://chartio.com/resources/tutorials/how-to-define-an-auto-increment-primary-key-in-postgresql/
 
