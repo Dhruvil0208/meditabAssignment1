@@ -1,11 +1,3 @@
-Create View to fetch the result of FirstName, LastName, MiddleName, DOB, Chart Number, Sex , Race , Primary Address, Primary Phone, Primary Fax.
-Write Query to fetch unique record from the Patient table based on Firstname, LastName, DOB and Sex with number of occurance(count) of same data.
-Create Function to stored the data into patient table. Pass all the value in the function parameter and function should return the created new primary key value of the table.
-Create Function to get the result of patient’s data by using patientId, lastname, firstname, sex, dob. Need to implement the pagination and sorting(LastName, Firstname, Sex, DOB) in this function.
-Write Query to search the patient by patient’s phone no
-
-
-
 
 create table if not exists sex (
 sex_id serial primary key,
@@ -89,19 +81,19 @@ address_type int references address_type(address_type_id),
 street varchar(25),
 zip int not null,
 city varchar(25),
-_state varchar(25),
+state varchar(25),
 country varchar(25),
 created_at timestamp default current_timestamp,
 updated_at timestamp
 );
 
-insert into address(patient_id,address_type,street,zip,city,_state,country) values
+insert into address(patient_id,address_type,street,zip,city,state,country) values
 (1,1,'g-1 sunrise park',380004,'ahmedabad','gujarat','india');
-insert into address(patient_id,address_type,street,zip,city,_state,country) values
+insert into address(patient_id,address_type,street,zip,city,state,country) values
 (2,2,'g-1 sunrise park',380004,'ahmedabad','gujarat','india');
-insert into address(patient_id,address_type,street,zip,city,_state,country) values
+insert into address(patient_id,address_type,street,zip,city,state,country) values
 (3,1,'g-1 sunrise park',380004,'ahmedabad','gujarat','india');
-insert into address(patient_id,address_type,street,zip,city,_state,country) values
+insert into address(patient_id,address_type,street,zip,city,state,country) values
 (4,1,'g-1 sunrise park',380004,'ahmedabad','gujarat','india');
 
 select * from address;
@@ -171,9 +163,12 @@ select * from preferences;
 
 
 
+
+
+
 --1.Create View to fetch the result of FirstName, LastName, MiddleName, DOB, Chart Number, Sex , Race , Primary Address, Primary Phone, Primary Fax.
  create or replace view  demographics as
-  select first_name,last_name,dob,sex,race,address_type,street,zip,city,_state,country,phone_number,fax_number
+  select patient.patient_id,first_name,last_name,dob,sex,race,address_type,street,zip,city,state,country,phone_number,fax_number
   from patient 
   left join sex on 
   patient.sex_id = sex.sex_id
@@ -231,51 +226,73 @@ select * from patient;
 --4.Create Function to get the result of patient’s data by using patientId, lastname, firstname, sex, dob. Need to implement the pagination and sorting(LastName, Firstname, Sex, DOB) in this function.
 --drop function search_patient(id varchar(25) default null,PageNumber INTEGER = 1,
 --PageSize INTEGER = 10);
-create  or replace function  search_patient(PageNumber INTEGER = 1,
-PageSize INTEGER = 10,fname varchar(25) default null,lname varchar(25) default null)
-returns table( firstname varchar(25),last_name varchar(25),dob date,sex varchar(25),race varchar(25),address_type int,street varchar(25),zip int,city varchar(25),_state varchar(25),country varchar(25),phone_number numeric,fax_number numeric
+create  or replace function  
+search_patient	
+			(
+			pageNumber in integer default 1 ,
+			pageSize in integer default 20,
+			firstName in varchar default null ,
+			lastName in varchar default null,
+			gender in varchar default null,
+			dateofbirth in varchar default null,
+			orderby in varchar default 'patient_id')
+returns table( 	patient_id int,
+				first_name varchar,
+				last_name varchar,
+				dob date,
+				sex varchar,
+				race varchar,
+				address_type int,
+				street varchar,
+				zip int,
+				city varchar,
+				state varchar,
+				country varchar,
+				phone_number numeric,
+				fax_number numeric
 )
+language plpgsql
 as
 $$
-declare
-search_string varchar(25) = @id;
+declare 
+query1 varchar(2000) := 'select * from demographics where 1=1 ';
+conditional varchar(3000) := '';
+ 
 begin
-	return query
-	(select *
-	from demographics 
-	where (
-	case 
-		when @fname is null then 
-	)
+
+	if $3 != '' then
+		 conditional := 'and first_name = '''||$3||'''';
+	end if;
+
+	if $4 != '' then 
+		
+			conditional := conditional||' and last_name = '''||$4||'''';
+		
+	end if;
+	if $5 != '' then 
+		
+			conditional := conditional||' and sex = '''||$5||'''';
+	end if;
+	if $6 != '' then 
+					conditional := conditional||' and dob = '''||$6||'''';
+		
+	end if;
 	
-	ORDER BY first_name asc,last_name asc,sex asc, dob asc
-  	LIMIT PageSize
-  	OFFSET ((PageNumber-1) * PageSize));
+	query1 := query1||conditional||' ORDER BY '|| $7||' ASC LIMIT '|| pageSize ||' OFFSET (('||pageNumber||'-1) *'|| pageSize||')';
+	raise notice '%' , query1;
+	return query execute query1;
 end;
 $$
-language plpgsql;
 
-select * from search_patient(1,2);
 
---CREATE OR REPLACE FUNCTION GetRowsByPageNumberAndSize(
---PageNumber INTEGER = 1,
---PageSize INTEGER = 10
---)
---RETURNS SETOF patient AS
---$BODY$
---BEGIN
---  RETURN QUERY
---  SELECT *
---  FROM patient
---  ORDER BY first_name ASC
---  LIMIT PageSize
---  OFFSET ((PageNumber-1) * PageSize);
---END;
---$BODY$
---LANGUAGE plpgsql;
---
---select GetRowsByPageNumberAndSize();
---select GetRowsByPageNumberAndSize(2,3);
+
+
+select * from search_patient(1,2,lastName=>'chaudhary');
+select * from search_patient(gender=>'male');
+
+select * from search_patient(1,2,firstName=>'dhruvil',orderby=>'dob');
+select * from search_patient(orderby=>'dob');
+
 
 
 --5.Write Query to search the patient by patient’s phone no
@@ -285,4 +302,5 @@ patient.patient_id = address.patient_id
 left join phone on 
 address.address_id = phone.address_id
 where phone_number = '9016873801';
+
 
