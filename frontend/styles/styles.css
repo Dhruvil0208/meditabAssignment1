@@ -2,7 +2,7 @@
     padding:0px;
     margin:0px;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: "Lato", sans-serif;
     
 }
 
@@ -39,7 +39,7 @@ select:focus {
 
 .nav-menu-left a{
     text-decoration: none;
-    color: gray;
+    color: #627d98;
     font-size:x-large;
     padding: 5px;
     
@@ -58,7 +58,7 @@ select:focus {
 
 .nav-menu-right a{
     text-decoration: none;
-    color: gray;
+    color: #627d98;
     font-size:x-large;
     padding: 5px;
     
@@ -85,16 +85,30 @@ select:focus {
     border-bottom: 2px solid #e9eafb;
 }
 
+.main-wrapper{
+    display: flex;
+    width: 100%;
+}
+
 .main{
     background-color: #f6f6f6;
-    height: calc(100vh - 67px);
+    height: calc(100vh - 52px);
     color: #486581;
+    width: 97.5%;
    
+}
+
+.right-sidebar{
+    width: 2.5%;
 }
 /* .side-content{
     display:
 } */
 
+
+.top-content{
+    width:95%;
+}
 #patient-bar{
 padding: 10px;
 font-size: 20px;
@@ -137,7 +151,7 @@ button{
 .sidebar{
     height: calc(100vh - 119px);
     /* display: inline-block; */
-    width: 10%;
+    width: 12%;
     display:inline-block;
     border: 1px solid #e0e0e0;
     overflow-y: scroll;
@@ -179,7 +193,9 @@ button{
     margin: 5px;
     margin-left: 10px;
     padding: 5px;
-    color: gray;
+    color: #0A2644;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .sidebar a:hover{
@@ -187,9 +203,9 @@ button{
     display: block;
     margin: 5px;
     padding: 5px;
-    font-size: 20px;
+    font-size: 18px;
     color: #5a5fe2;
-    font-weight: bold;
+    
 }
 
 /* width */
@@ -220,7 +236,7 @@ button{
 }
 
  .mainform{
-    width: 85%;
+    width: 95%;
     height: calc(100vh - 140px);
     margin:20px;
     padding:10px;
@@ -230,8 +246,8 @@ button{
     width: 96%;
 }
 .form1{
-    margin:10px;
-    padding:5px;
+    margin:20px 10px;
+    padding:10px 5px;
     display:flex;
     border: 1px solid #e0e0e0;
     background-color: #ffffff;
@@ -311,6 +327,10 @@ button{
 .contact-header{
     display: flex;
 }
+.contact-header h2{
+    font-size: medium;
+}
+
 #address-option{
     margin-left: 10px;
 }
@@ -334,6 +354,11 @@ button{
     width: 95%;
     padding: 5px;
     display: inline-block;
+    font-weight: 550;
+    font-size: small;
+}
+.address-field-header i{
+    font-size: small;
 }
 
 .address-street input{
@@ -345,6 +370,7 @@ button{
 .address-street label{
     display:block;
     margin:1%;
+    font-size: small;
 }
 
 .address-rest{
@@ -361,6 +387,7 @@ button{
 .address-rest label{
     display:block;
     margin:3%;
+    font-size: small;
 }
 
 
@@ -382,24 +409,36 @@ button{
 .phone h3{
     display: inline-block;
     margin: 1%;
+    margin-right: 0px;
+    font-weight: 550;
+    font-size: small;
+    padding-right: 0px;
+}
+.phone i{
+    font-size: small;
 }
 
 .phone-header{
     display: flex;
     margin-left: 1%;
+    font-size: small;
+  
 }
 
 .type{
     margin:1%;
     width: 15%;
+    font-size: small;
 }
 .code{
     margin:1%;
     width:10%;
+    font-size: small;
 }
 .number{
     margin:1%;
     width: 50%;
+    font-size: small;
 }
 
 .phone-inputs{
@@ -423,11 +462,17 @@ button{
 .fax h3{
     display: inline-block;
     margin: 1%;
+    font-size: small;
+    font-weight: 550;;
+}
+.fax i{
+    font-size: small;
 }
 
 .fax-header{
     display: flex;
     margin-left: 1%;
+    font-size: small;
 }
 
 .fax-inputs{
@@ -437,8 +482,12 @@ button{
 .email h3{
     display:inline-block;
     margin: 1%;
+    font-size: small;
+    font-weight: 550;
 }
-
+.email i{
+    font-size: small;
+}
 
 .email-input input {
     width: 50%;
@@ -446,17 +495,26 @@ button{
     height: 25px;
 }
 
+.email-input i{
+    font-size: small;
+}
 .website h3{
     display: inline-block;
     margin: 1%;
+    font-size: small;
+    font-weight: 550;
 }
-
+.website i {
+    font-size: small;
+}
 .website-input input {
     width: 50%;
     margin: 1%;
     height: 25px;
 }
-
+.website-input i{
+    font-size: small;
+}
 .address1 fieldset{
     border:  1px solid #e0e0e0;
     height: 100%;
@@ -519,3 +577,25 @@ td, th {
     cursor: pointer;
 }
 
+.right-sidebar{
+  border-left: 2px solid #e9eafb;
+  background-color: #ffffff;
+}
+.right-sidebar  i{
+    padding: 5px;
+    justify-content: center;
+    font-size: large;
+    margin: 5px;
+    margin-bottom: 0px;
+    text-decoration: none;
+    color: #627d98;
+}
+.right-sidebar  p{
+    
+    justify-content: center;
+    font-size: small;
+    margin-left: 5px;
+    padding-left: 10px;
+    text-decoration: none;
+    color: gray;
+}

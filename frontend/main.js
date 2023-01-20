@@ -64,7 +64,7 @@ for (i = 0; i < coll.length; i++) {
 }
 
 
-let count = 0;
+
 // function for adding and deleting contact field
 const contactFormHTML = `<div class="address1">
 <fieldset>
@@ -165,7 +165,7 @@ const contactFormHTML = `<div class="address1">
 </div>`
 //addition function
 function addContactField (){
-    count++;
+
   document.getElementById("address-container").innerHTML += contactFormHTML;
 }
 //deletion function
