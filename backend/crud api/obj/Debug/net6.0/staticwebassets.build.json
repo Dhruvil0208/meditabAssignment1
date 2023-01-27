@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "Hash": "E1QbkAOBw/cOn9EuKNr2w/W8Bvo+KGvDb5PB/O5kDNw=",
+  "Source": "crud api",
+  "BasePath": "_content/crud api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "crud api\\wwwroot",
+      "Source": "crud api",
+      "ContentRoot": "C:\\Users\\dhruvilc\\source\\repos\\crud api\\crud api\\wwwroot\\",
+      "BasePath": "_content/crud api",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\dhruvilc\\source\\repos\\crud api\\crud api\\wwwroot\\index.html",
+      "SourceId": "crud api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dhruvilc\\source\\repos\\crud api\\crud api\\wwwroot\\",
+      "BasePath": "_content/crud api",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\dhruvilc\\source\\repos\\crud api\\crud api\\wwwroot\\js\\main.js",
+      "SourceId": "crud api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dhruvilc\\source\\repos\\crud api\\crud api\\wwwroot\\",
+      "BasePath": "_content/crud api",
+      "RelativePath": "js/main.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\main.js"
+    },
+    {
+      "Identity": "C:\\Users\\dhruvilc\\source\\repos\\crud api\\crud api\\wwwroot\\styles\\istockphoto-1331257339-1024x1024.jpg",
+      "SourceId": "crud api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dhruvilc\\source\\repos\\crud api\\crud api\\wwwroot\\",
+      "BasePath": "_content/crud api",
+      "RelativePath": "styles/istockphoto-1331257339-1024x1024.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\styles\\istockphoto-1331257339-1024x1024.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\dhruvilc\\source\\repos\\crud api\\crud api\\wwwroot\\styles\\styles.css",
+      "SourceId": "crud api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dhruvilc\\source\\repos\\crud api\\crud api\\wwwroot\\",
+      "BasePath": "_content/crud api",
+      "RelativePath": "styles/styles.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\styles\\styles.css"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "dgSpecHash": "yVgkdUbxEVhWxQCZVFoPotuTZf0OA5WOOO9orK90lXZEt8SEHYlvjxvzmdshCzUu5riGa6hTgyDVlFuzTwc2gQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\dhruvilc\\source\\repos\\crud api\\crud api\\crud api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dhruvilc\\.nuget\\packages\\cuemon.aspnetcore\\7.1.0\\cuemon.aspnetcore.7.1.0.nupkg.sha512",
+    "C:\\Users\\dhruvilc\\.nuget\\packages\\cuemon.aspnetcore.mvc\\7.1.0\\cuemon.aspnetcore.mvc.7.1.0.nupkg.sha512",
+    "C:\\Users\\dhruvilc\\.nuget\\packages\\cuemon.core\\7.1.0\\cuemon.core.7.1.0.nupkg.sha512",
+    "C:\\Users\\dhruvilc\\.nuget\\packages\\cuemon.data.integrity\\7.1.0\\cuemon.data.integrity.7.1.0.nupkg.sha512",
+    "C:\\Users\\dhruvilc\\.nuget\\packages\\cuemon.diagnostics\\7.1.0\\cuemon.diagnostics.7.1.0.nupkg.sha512",
+    "C:\\Users\\dhruvilc\\.nuget\\packages\\cuemon.extensions.aspnetcore.mvc.formatters.newtonsoft.json\\7.1.0\\cuemon.extensions.aspnetcore.mvc.formatters.newtonsoft.json.7.1.0.nupkg.sha512",
+    "C:\\Users\\dhruvilc\\.nuget\\packages\\cuemon.extensions.newtonsoft.json\\7.1.0\\cuemon.extensions.newtonsoft.json.7.1.0.nupkg.sha512",
+    "C:\\Users\\dhruvilc\\.nuget\\packages\\cuemon.io\\7.1.0\\cuemon.io.7.1.0.nupkg.sha512",
+    "C:\\Users\\dhruvilc\\.nuget\\packages\\cuemon.security.cryptography\\7.1.0\\cuemon.security.cryptography.7.1.0.nupkg.sha512",
+    "C:\\Users\\dhruvilc\\.nuget\\packages\\cuemon.threading\\7.1.0\\cuemon.threading.7.1.0.nupkg.sha512",
+    "C:\\Users\\dhruvilc\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\6.0.1\\microsoft.aspnetcore.jsonpatch.6.0.1.nupkg.sha512",
+    "C:\\Users\\dhruvilc\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\6.0.1\\microsoft.aspnetcore.mvc.newtonsoftjson.6.0.1.nupkg.sha512",
+    "C:\\Users\\dhruvilc\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\dhruvilc\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\dhruvilc\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\dhruvilc\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\dhruvilc\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
+    "C:\\Users\\dhruvilc\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
+    "C:\\Users\\dhruvilc\\.nuget\\packages\\npgsql\\7.0.1\\npgsql.7.0.1.nupkg.sha512",
+    "C:\\Users\\dhruvilc\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\dhruvilc\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\dhruvilc\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\dhruvilc\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
+    "C:\\Users\\dhruvilc\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
